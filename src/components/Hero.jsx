@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import { ChevronDown, ArrowRight, Download } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import './Hero.scss';
 
@@ -14,15 +14,32 @@ const Hero = () => {
     }
   };
 
-  // Reduced floating shapes for better performance
+  const downloadCV = () => {
+    // Create a temporary link to download CV
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // Add your CV file to public folder
+    link.download = 'Akshay_Kumar_Bolusani_Resume.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  // Floating shapes with proper positioning
   const floatingShapes = [
-    { id: 1, size: 50, x: 10, y: 20, delay: 0 },
-    { id: 2, size: 30, x: 80, y: 60, delay: 1 },
-    { id: 3, size: 60, x: 20, y: 80, delay: 2 },
+    { id: 1, size: 40, x: 10, y: 20, delay: 0 },
+    { id: 2, size: 60, x: 85, y: 15, delay: 1 },
+    { id: 3, size: 30, x: 20, y: 70, delay: 2 },
+    { id: 4, size: 50, x: 75, y: 80, delay: 3 },
+    { id: 5, size: 45, x: 50, y: 40, delay: 1.5 },
   ];
 
   return (
     <section ref={heroRef} className="hero" id="hero">
+      {/* Background */}
+      <div className="hero-background" />
+      <div className="gradient-overlay" />
+
       {/* Floating Background Shapes */}
       <div className="floating-shapes">
         {floatingShapes.map((shape) => (
@@ -36,11 +53,12 @@ const Hero = () => {
               height: `${shape.size}px`,
             }}
             animate={{
-              y: [0, -15, 0],
+              y: [0, -20, 0],
               rotate: [0, 180, 360],
+              scale: [1, 1.1, 1],
             }}
             transition={{
-              duration: 4,
+              duration: 6,
               delay: shape.delay,
               repeat: Infinity,
               ease: "easeInOut",
@@ -49,107 +67,109 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Gradient Background */}
-      <div className="hero-background">
-        <div className="gradient-overlay" />
-      </div>
-
       {/* Main Content */}
-      <div className="container">
+      <div className="hero-content">
         <motion.div
-          className="hero-content"
+          className="hero-glass-card"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {/* Glass Card */}
-          <div className="hero-glass-card">
-            <motion.div
-              className="hero-text"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+          <motion.div
+            className="hero-text"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <motion.h1
+              className="hero-name"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <motion.h1
-                className="hero-name"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                {portfolioData.personal.name}
-              </motion.h1>
-              
-              <motion.p
-                className="hero-tagline"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
-                {portfolioData.personal.tagline}
-              </motion.p>
-              
-              <motion.p
-                className="hero-description"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.0 }}
-              >
-                Crafting digital experiences with modern technologies and creative design.
-                Let's build something amazing together.
-              </motion.p>
-
-              <motion.div
-                className="hero-buttons"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-              >
-                <motion.button
-                  className="btn btn-primary"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={scrollToAbout}
-                >
-                  View My Work
-                  <ArrowRight size={20} />
-                </motion.button>
-                
-                <motion.button
-                  className="btn btn-secondary"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => window.open('#contact', '_self')}
-                >
-                  Get In Touch
-                </motion.button>
-              </motion.div>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              className="hero-stats"
-              initial={{ opacity: 0, y: 20 }}
+              {portfolioData.personal.name}
+            </motion.h1>
+            
+            <motion.p
+              className="hero-tagline"
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.4 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <div className="stats-grid">
-                {portfolioData.stats.map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    className="stat-item"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: 1.6 + index * 0.1 }}
-                  >
-                    <div className="stat-value">
-                      {stat.value}{stat.suffix}
-                    </div>
-                    <div className="stat-label">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </div>
+              {portfolioData.personal.tagline}
+            </motion.p>
+            
+            <motion.p
+              className="hero-description"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+            >
+              Crafting digital experiences with modern technologies and creative design.
+              Let's build something amazing together.
+            </motion.p>
+
+            <motion.div
+              className="hero-buttons"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+            >
+              <motion.button
+                className="btn btn-primary"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={scrollToAbout}
+              >
+                View My Work
+                <ArrowRight size={20} />
+              </motion.button>
+              
+              <motion.button
+                className="btn btn-secondary"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('#contact', '_self')}
+              >
+                Get In Touch
+              </motion.button>
+              
+              <motion.button
+                className="btn btn-secondary download-cv-btn"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={downloadCV}
+              >
+                <Download size={20} />
+                Download CV
+              </motion.button>
             </motion.div>
-          </div>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            className="hero-stats"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.4 }}
+          >
+            <div className="stats-grid">
+              {portfolioData.stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  className="stat-item"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 1.6 + index * 0.1 }}
+                >
+                  <div className="stat-value">
+                    {stat.value}{stat.suffix}
+                  </div>
+                  <div className="stat-label">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import './About.scss';
+import { Mail, Phone } from 'lucide-react';
 
 const About = () => {
   const [counters, setCounters] = useState({
@@ -130,38 +131,16 @@ const About = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {/* Animated Counters */}
-            <div className="about-stats glass-card">
-              <h3>My Journey in Numbers</h3>
-              <div className="stats-grid">
-                {Object.entries(counters).map(([key, value], index) => (
-                  <motion.div
-                    key={key}
-                    className="stat-card"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <div className="stat-number">
-                      {value}
-                      {portfolioData.stats[index]?.suffix}
-                    </div>
-                    <div className="stat-label">
-                      {portfolioData.stats[index]?.label}
-                    </div>
-                  </motion.div>
-                ))}
+            {/* Personal Information */}
+            <div className="personal-info">
+              <div className="info-header">
+                <h3>Personal Information</h3>
               </div>
-            </div>
-
-            {/* Personal Info */}
-            <div className="about-info glass-card">
-              <h3>Personal Information</h3>
+              
               <div className="info-grid">
-                <div className="info-item">
+                <div className="info-item name-highlight">
                   <span className="info-label">Name:</span>
-                  <span className="info-value">{portfolioData.personal.name}</span>
+                  <span className="info-value highlighted-name">{portfolioData.personal.name}</span>
                 </div>
                 <div className="info-item">
                   <span className="info-label">Title:</span>
@@ -173,16 +152,27 @@ const About = () => {
                 </div>
                 <div className="info-item">
                   <span className="info-label">Email:</span>
-                  <a className="info-value info-link" href={`mailto:${portfolioData.personal.email}`}>{portfolioData.personal.email}</a>
+                  <a href={`mailto:${portfolioData.personal.email}`} className="contact-link">
+                    {portfolioData.personal.email}
+                  </a>
                 </div>
                 <div className="info-item">
                   <span className="info-label">Phone:</span>
-                  <a className="info-value info-link" href={`tel:${portfolioData.personal.phone}`}>{portfolioData.personal.phone}</a>
+                  <a href={`tel:${portfolioData.personal.phone}`} className="contact-link">
+                    {portfolioData.personal.phone}
+                  </a>
                 </div>
-                <div className="info-item">
-                  <span className="info-label">Websites:</span>
-                  <span className="info-value">{portfolioData.stats[0].value}+ Developed</span>
-                </div>
+              </div>
+              
+              <div className="contact-links">
+                <a href={`mailto:${portfolioData.personal.email}`} className="contact-link">
+                  <Mail size={20} />
+                  Send Email
+                </a>
+                <a href={`tel:${portfolioData.personal.phone}`} className="contact-link">
+                  <Phone size={20} />
+                  Call Now
+                </a>
               </div>
             </div>
 
@@ -204,26 +194,6 @@ const About = () => {
                 ))}
               </div>
             </div>
-
-            {/* Download CV Button */}
-            <motion.div
-              className="about-cta"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.6 }}
-            >
-              <motion.button
-                className="btn btn-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  // Add CV download functionality here
-                  alert('CV download functionality can be added here');
-                }}
-              >
-                Download CV
-              </motion.button>
-            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -4,85 +4,75 @@ import './LoadingScreen.scss';
 
 const LoadingScreen = () => {
   return (
-    <div className="loading-screen">
+    <motion.div
+      className="loading-screen"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <div className="loading-content">
         <motion.div
           className="loading-logo"
-          initial={{ scale: 0, opacity: 0 }}
+          initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="logo-circle">
-            <motion.div
-              className="logo-inner"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-            />
+            <div className="logo-inner"></div>
           </div>
         </motion.div>
-        
+
         <motion.h1
           className="loading-title"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Akshay Kumar Bolusani
+          Akshay Kumar
         </motion.h1>
-        
+
         <motion.p
           className="loading-subtitle"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
         >
-          Student Intern & Developer
+          Portfolio Loading...
         </motion.p>
-        
+
         <motion.div
           className="loading-bar"
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 1.5, delay: 0.6, ease: "easeInOut" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
         >
           <motion.div
             className="loading-progress"
-            animate={{ x: ["0%", "100%"] }}
-            transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+            initial={{ width: "0%" }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 1.2, delay: 0.8, ease: "easeInOut" }}
           />
         </motion.div>
-        
-        <motion.div
+
+        <motion.p
           className="loading-text"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 1.0 }}
         >
-          Loading portfolio...
-        </motion.div>
+          Preparing your experience...
+        </motion.p>
       </div>
-      
-      {/* Reduced floating particles for better performance */}
-      {[...Array(3)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="loading-particle"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ 
-            opacity: [0, 1, 0],
-            scale: [0, 1, 0],
-            x: [0, Math.random() * 150 - 75],
-            y: [0, Math.random() * 150 - 75]
-          }}
-          transition={{ 
-            duration: 2,
-            delay: i * 0.3,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-      ))}
-    </div>
+
+      {/* Floating particles */}
+      <div className="loading-particle"></div>
+      <div className="loading-particle"></div>
+      <div className="loading-particle"></div>
+      <div className="loading-particle"></div>
+      <div className="loading-particle"></div>
+      <div className="loading-particle"></div>
+    </motion.div>
   );
 };
 

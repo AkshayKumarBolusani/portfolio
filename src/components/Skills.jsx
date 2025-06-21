@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Code, Database, Palette, Users, TrendingUp, Award } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import './Skills.scss';
 
@@ -14,24 +15,33 @@ const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
 
   const categories = [
-    { id: 'frontend', name: 'Frontend', icon: '🎨' },
-    { id: 'backend', name: 'Backend', icon: '⚙️' },
-    { id: 'tools', name: 'Tools', icon: '🛠️' },
-    { id: 'soft', name: 'Soft Skills', icon: '💡' },
+    { id: 'frontend', name: 'Frontend', icon: <Code size={24} /> },
+    { id: 'backend', name: 'Backend', icon: <Database size={24} /> },
+    { id: 'tools', name: 'Tools & Platforms', icon: <TrendingUp size={24} /> },
+    { id: 'soft', name: 'Soft Skills', icon: <Users size={24} /> }
   ];
+
+  const categoryIcons = {
+    frontend: <Code size={24} />,
+    backend: <Database size={24} />,
+    tools: <TrendingUp size={24} />,
+    soft: <Users size={24} />
+  };
 
   const getSkillLevel = (level) => {
     if (level >= 90) return 'Expert';
     if (level >= 80) return 'Advanced';
     if (level >= 70) return 'Intermediate';
-    return 'Beginner';
+    if (level >= 60) return 'Beginner';
+    return 'Novice';
   };
 
   const getSkillColor = (level) => {
-    if (level >= 90) return '#10b981'; // Green
-    if (level >= 80) return '#3b82f6'; // Blue
-    if (level >= 70) return '#f59e0b'; // Yellow
-    return '#ef4444'; // Red
+    if (level >= 90) return '#10b981';
+    if (level >= 80) return '#3b82f6';
+    if (level >= 70) return '#f59e0b';
+    if (level >= 60) return '#ef4444';
+    return '#6b7280';
   };
 
   return (
@@ -142,73 +152,33 @@ const Skills = () => {
           </div>
         </motion.div>
 
-        {/* Skills Summary */}
+        {/* Skills Overview */}
         <motion.div
-          className="skills-summary"
+          className="skills-overview-section"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <div className="summary-card glass-card">
+          <div className="overview-header">
             <h3>Skills Overview</h3>
-            <div className="summary-stats">
-              <div className="summary-stat">
+            <p>Professional expertise across multiple technology domains</p>
+          </div>
+          
+          <div className="overview-content">
+            <div className="overview-stats">
+              <div className="stat-item">
                 <div className="stat-number">4</div>
                 <div className="stat-label">Categories</div>
               </div>
-              <div className="summary-stat">
+              <div className="stat-item">
                 <div className="stat-number">24</div>
                 <div className="stat-label">Technologies</div>
               </div>
-              <div className="summary-stat">
+              <div className="stat-item">
                 <div className="stat-number">85%</div>
                 <div className="stat-label">Average Proficiency</div>
               </div>
             </div>
-            <p className="summary-text">
-              Continuously learning and expanding my skill set to stay current with the latest technologies and best practices in web development.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Certificates Section */}
-        <motion.div
-          className="certificates-section"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <div className="section-header">
-            <h3 className="section-title">Certificates & Achievements</h3>
-            <p className="section-subtitle">
-              Professional certifications and achievements that validate my expertise.
-            </p>
-          </div>
-          
-          <div className="certificates-grid">
-            {portfolioData.certificates.map((cert, index) => (
-              <motion.div
-                key={cert.id}
-                className="certificate-card glass-card"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 1.0 + index * 0.1 }}
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -10,
-                }}
-              >
-                <div className="certificate-image">
-                  <img src={cert.image} alt={cert.name} />
-                </div>
-                <div className="certificate-content">
-                  <h4 className="certificate-name">{cert.name}</h4>
-                  <p className="certificate-issuer">{cert.issuer}</p>
-                  <p className="certificate-date">{cert.date}</p>
-                  <p className="certificate-description">{cert.description}</p>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </motion.div>
       </div>

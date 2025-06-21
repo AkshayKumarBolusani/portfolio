@@ -1,10 +1,44 @@
+// Import responsive design system
+@import './styles/responsive.scss';
+
+// Performance optimizations
+* {
+  box-sizing: border-box;
+}
+
+// Optimize animations for better performance
+.motion-reduce {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Optimize transforms and animations
+.glass, .glass-card {
+  will-change: transform, backdrop-filter;
+  transform: translateZ(0); // Force hardware acceleration
+}
+
+// Optimize images
+img {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+// Optimize scroll performance
+.section {
+  will-change: transform, opacity;
+}
+
 // Variables
 :root {
   // Light theme
   --bg-primary-light: #f8fafc;
   --bg-secondary-light: rgba(255, 255, 255, 0.8);
   --text-primary-light: #1e293b;
-  --text-secondary-light: #64748b;
+  --text-secondary-light: #475569;
   --accent-light: #3b82f6;
   --border-light: rgba(148, 163, 184, 0.2);
   --glass-light: rgba(255, 255, 255, 0.25);
@@ -38,6 +72,8 @@
 
 html {
   scroll-behavior: smooth;
+  // Prevent horizontal scroll on mobile
+  overflow-x: hidden;
 }
 
 body {
@@ -47,6 +83,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  // Prevent any unwanted lines
+  background: var(--bg-primary-light);
+  
+  &.dark {
+    background: var(--bg-primary-dark);
+  }
 }
 
 // App container
@@ -54,6 +96,7 @@ body {
   min-height: 100vh;
   position: relative;
   transition: var(--transition);
+  overflow-x: hidden; // Prevent horizontal scroll
   
   &.dark {
     background: var(--bg-primary-dark);
@@ -70,6 +113,7 @@ body {
 .main-content {
   position: relative;
   z-index: 1;
+  overflow-x: hidden; // Prevent horizontal scroll
 }
 
 // Glassmorphism utility classes
@@ -90,6 +134,12 @@ body {
     border-color: var(--border-light);
     box-shadow: var(--shadow-light);
   }
+  
+  // Mobile optimization
+  @media (max-width: 768px) {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 }
 
 .glass-card {
@@ -100,6 +150,14 @@ body {
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    
+    @media (max-width: 768px) {
+      transform: none; // Disable hover on mobile
+    }
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
   }
 }
 
@@ -114,6 +172,8 @@ body {
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  min-height: 44px; // Touch-friendly size
+  min-width: 44px;
   
   &::before {
     content: '';
@@ -137,6 +197,10 @@ body {
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+      
+      @media (max-width: 768px) {
+        transform: none; // Disable hover on mobile
+      }
     }
   }
   
@@ -159,15 +223,25 @@ body {
       }
     }
   }
+  
+  @media (max-width: 768px) {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+  }
 }
 
 // Section styles
 .section {
   padding: 6rem 2rem;
   position: relative;
+  overflow-x: hidden; // Prevent horizontal scroll
   
   @media (max-width: 768px) {
     padding: 4rem 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 3rem 0.5rem;
   }
 }
 
@@ -184,6 +258,10 @@ body {
   @media (max-width: 768px) {
     font-size: 2rem;
   }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 }
 
 .section-subtitle {
@@ -196,6 +274,11 @@ body {
     font-size: 1rem;
     margin-bottom: 2rem;
   }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 // Container
@@ -206,6 +289,10 @@ body {
   
   @media (max-width: 768px) {
     padding: 0 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 0.5rem;
   }
 }
 
@@ -316,4 +403,90 @@ body {
     padding: 10px 20px;
     font-size: 0.9rem;
   }
+}
+
+// Performance optimizations
+@media (max-width: 768px) {
+  // Reduce animations on mobile
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.2s !important;
+  }
+  
+  // Disable hover effects on touch devices
+  *:hover {
+    transform: none !important;
+  }
+  
+  // Reduce blur effects for better performance
+  .glass, .glass-card {
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .glass, .glass-card {
+    border: 2px solid #000;
+    
+    .dark & {
+      border-color: #fff;
+    }
+  }
+}
+
+// Print styles
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .glass, .glass-card {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+}
+
+// Section Loader for Lazy Loading
+.section-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  padding: 2rem;
+  
+  .loader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #007AFF;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    
+    .dark & {
+      border-color: rgba(255, 255, 255, 0.1);
+      border-top-color: #007AFF;
+    }
+    
+    .light & {
+      border-color: rgba(0, 0, 0, 0.1);
+      border-top-color: #007AFF;
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 } 
