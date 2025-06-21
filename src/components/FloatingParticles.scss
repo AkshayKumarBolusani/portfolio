@@ -1,0 +1,55 @@
+.floating-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  
+  .particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    backdrop-filter: blur(1px);
+    
+    .dark & {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    
+    .light & {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      height: 60%;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      filter: blur(1px);
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .floating-particles {
+    .particle {
+      opacity: 0.5;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-particles {
+    .particle {
+      opacity: 0.3;
+    }
+  }
+} 

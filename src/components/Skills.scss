@@ -1,0 +1,530 @@
+.skills {
+  position: relative;
+  
+  // Category Tabs
+  .skills-categories {
+    margin-bottom: 3rem;
+    
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      
+      @media (max-width: 768px) {
+        gap: 0.5rem;
+      }
+    }
+    
+    .category-tab {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      color: var(--text-secondary-dark);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      .dark & {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.05);
+        color: var(--text-secondary-dark);
+      }
+      
+      .light & {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+        color: var(--text-secondary-light);
+      }
+      
+      &:hover {
+        transform: translateY(-2px);
+        
+        .dark & {
+          background: rgba(255, 255, 255, 0.08);
+          border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .light & {
+          background: rgba(255, 255, 255, 0.15);
+          border-color: rgba(255, 255, 255, 0.3);
+        }
+      }
+      
+      &.active {
+        background: var(--gradient-primary);
+        color: white;
+        border-color: transparent;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+      }
+      
+      .category-icon {
+        font-size: 1.2rem;
+      }
+      
+      .category-name {
+        font-size: 1rem;
+        
+        @media (max-width: 480px) {
+          display: none;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        padding: 0.8rem 1rem;
+      }
+    }
+  }
+  
+  // Skills Grid
+  .skills-content {
+    margin-bottom: 4rem;
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+    
+    .skill-card {
+      position: relative;
+      padding: 2rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+      
+      .skill-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        
+        .skill-icon {
+          font-size: 2rem;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 16px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .skill-info {
+          flex: 1;
+          
+          .skill-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary-dark);
+            
+            .dark & {
+              color: var(--text-primary-dark);
+            }
+            
+            .light & {
+              color: var(--text-primary-light);
+            }
+          }
+          
+          .skill-level {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+          }
+        }
+      }
+      
+      .skill-progress {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        
+        .progress-bar {
+          flex: 1;
+          height: 8px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 4px;
+          overflow: hidden;
+          position: relative;
+          
+          .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            position: relative;
+            
+            &::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+              animation: shimmer 2s infinite;
+            }
+          }
+        }
+        
+        .progress-percentage {
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: var(--text-secondary-dark);
+          min-width: 40px;
+          text-align: right;
+          
+          .dark & {
+            color: var(--text-secondary-dark);
+          }
+          
+          .light & {
+            color: var(--text-secondary-light);
+          }
+        }
+      }
+      
+      // Tooltip
+      .skill-tooltip {
+        position: absolute;
+        top: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        
+        .tooltip-content {
+          background: rgba(0, 0, 0, 0.9);
+          color: white;
+          padding: 0.75rem 1rem;
+          border-radius: 8px;
+          font-size: 0.85rem;
+          text-align: center;
+          white-space: nowrap;
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          
+          &::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: rgba(0, 0, 0, 0.9);
+          }
+        }
+      }
+    }
+  }
+  
+  // Skills Summary
+  .skills-summary {
+    .summary-card {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      
+      h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .summary-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 2rem;
+        
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        
+        .summary-stat {
+          text-align: center;
+          
+          .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            
+            @media (max-width: 768px) {
+              font-size: 2rem;
+            }
+          }
+          
+          .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary-dark);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            
+            .dark & {
+              color: var(--text-secondary-dark);
+            }
+            
+            .light & {
+              color: var(--text-secondary-light);
+            }
+          }
+        }
+      }
+      
+      .summary-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: var(--text-secondary-dark);
+        max-width: 600px;
+        margin: 0 auto;
+        
+        .dark & {
+          color: var(--text-secondary-dark);
+        }
+        
+        .light & {
+          color: var(--text-secondary-light);
+        }
+        
+        @media (max-width: 768px) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  // Certificates Section
+  .certificates-section {
+    margin-top: 4rem;
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      
+      .section-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .section-subtitle {
+        font-size: 1.1rem;
+        color: var(--text-secondary-dark);
+        max-width: 600px;
+        margin: 0 auto;
+        
+        .dark & {
+          color: var(--text-secondary-dark);
+        }
+        
+        .light & {
+          color: var(--text-secondary-light);
+        }
+      }
+    }
+    
+    .certificates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+    
+    .certificate-card {
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      
+      .certificate-image {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 1.5rem;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid rgba(255, 255, 255, 0.1);
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+      .certificate-content {
+        h4 {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          color: var(--text-primary-dark);
+          
+          .dark & {
+            color: var(--text-primary-dark);
+          }
+          
+          .light & {
+            color: var(--text-primary-light);
+          }
+        }
+        
+        .certificate-issuer {
+          font-size: 1rem;
+          font-weight: 500;
+          color: var(--accent-color);
+          margin-bottom: 0.5rem;
+        }
+        
+        .certificate-date {
+          font-size: 0.9rem;
+          color: var(--text-secondary-dark);
+          margin-bottom: 1rem;
+          
+          .dark & {
+            color: var(--text-secondary-dark);
+          }
+          
+          .light & {
+            color: var(--text-secondary-light);
+          }
+        }
+        
+        .certificate-description {
+          font-size: 0.95rem;
+          line-height: 1.6;
+          color: var(--text-secondary-dark);
+          
+          .dark & {
+            color: var(--text-secondary-dark);
+          }
+          
+          .light & {
+            color: var(--text-secondary-light);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Shimmer animation
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .skills {
+    .skills-categories {
+      margin-bottom: 2rem;
+    }
+    
+    .skills-content {
+      margin-bottom: 3rem;
+      
+      .skills-grid {
+        gap: 1rem;
+      }
+      
+      .skill-card {
+        padding: 1.5rem;
+        
+        .skill-header {
+          .skill-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+          }
+          
+          .skill-info {
+            .skill-name {
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .skills {
+    .skills-categories {
+      .category-tabs {
+        justify-content: center;
+      }
+      
+      .category-tab {
+        padding: 0.8rem;
+        
+        .category-icon {
+          font-size: 1rem;
+        }
+      }
+    }
+    
+    .skills-content {
+      .skill-card {
+        padding: 1rem;
+        
+        .skill-header {
+          flex-direction: column;
+          text-align: center;
+          gap: 0.5rem;
+          
+          .skill-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+          }
+        }
+        
+        .skill-progress {
+          flex-direction: column;
+          gap: 0.5rem;
+          
+          .progress-percentage {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+} 
