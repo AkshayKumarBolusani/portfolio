@@ -173,11 +173,11 @@ const About = () => {
                 </div>
                 <div className="info-item">
                   <span className="info-label">Email:</span>
-                  <span className="info-value">{portfolioData.personal.email}</span>
+                  <a className="info-value info-link" href={`mailto:${portfolioData.personal.email}`}>{portfolioData.personal.email}</a>
                 </div>
                 <div className="info-item">
                   <span className="info-label">Phone:</span>
-                  <span className="info-value">{portfolioData.personal.phone}</span>
+                  <a className="info-value info-link" href={`tel:${portfolioData.personal.phone}`}>{portfolioData.personal.phone}</a>
                 </div>
                 <div className="info-item">
                   <span className="info-label">Websites:</span>

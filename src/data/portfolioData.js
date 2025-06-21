@@ -162,7 +162,7 @@ export const portfolioData = {
       institution: "Malla Reddy University",
       period: "09/2022 - Present",
       location: "Hyderabad, India",
-      aggregate: "8.9",
+      aggregate: "89",
       description: "Pursuing Bachelor of Technology in Computer Science with focus on software development and emerging technologies."
     },
     {
