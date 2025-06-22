@@ -2,6 +2,14 @@
   padding: 5rem 0;
   background: var(--bg-secondary);
   
+  @media (max-width: 768px) {
+    padding: 7rem 0 5rem 0; // More top padding on mobile
+  }
+  
+  @media (max-width: 480px) {
+    padding: 8rem 0 5rem 0; // Even more top padding on smaller screens
+  }
+  
   .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -112,19 +120,19 @@
       flex-shrink: 0;
       
       @media (max-width: 1200px) {
-        min-width: calc(25% - 1.5rem); // 4 items on smaller screens
+        min-width: calc(20% - 1.6rem); // Keep 5 items
       }
       
       @media (max-width: 992px) {
-        min-width: calc(33.333% - 1.33rem); // 3 items on medium screens
+        min-width: calc(20% - 1.6rem); // Keep 5 items
       }
       
       @media (max-width: 768px) {
-        min-width: calc(50% - 1rem); // 2 items on tablets
+        min-width: calc(20% - 1.6rem); // Keep 5 items
       }
       
       @media (max-width: 480px) {
-        min-width: calc(100% - 0.5rem); // 1 item on mobile
+        min-width: calc(20% - 1.6rem); // Keep 5 items
       }
     }
   }

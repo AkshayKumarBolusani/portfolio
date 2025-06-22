@@ -1,11 +1,25 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import './Hero.scss';
 
 const Hero = () => {
   const heroRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Track full page scroll progress
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      setScrollProgress(Math.min(progress, 100));
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToAbout = () => {
     const aboutSection = document.querySelector('#about');
@@ -173,22 +187,39 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Full Page Scroll Line */}
       <motion.div
-        className="scroll-indicator"
+        className="scroll-line-container"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.8 }}
       >
+        <div className="scroll-line-track">
+          <motion.div
+            className="scroll-line-progress"
+            style={{
+              height: `${scrollProgress}%`
+            }}
+            animate={{
+              height: `${scrollProgress}%`
+            }}
+            transition={{ duration: 0.1 }}
+          />
+        </div>
         <motion.div
-          className="scroll-arrow"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+          className="scroll-line-indicator"
+          animate={{
+            y: [0, 10, 0],
+            opacity: [0.7, 1, 0.7]
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
           onClick={scrollToAbout}
-        >
-          <ChevronDown size={24} />
-        </motion.div>
-        <span className="scroll-text">Scroll to explore</span>
+        />
+        <span className="scroll-line-text">Scroll</span>
       </motion.div>
     </section>
   );

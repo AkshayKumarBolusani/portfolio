@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import LoadingScreen from './components/LoadingScreen';
 import FloatingParticles from './components/FloatingParticles';
 import ThemeToggle from './components/ThemeToggle';
@@ -110,6 +110,9 @@ function App() {
       <Suspense fallback={<SectionLoader />}>
         <Footer />
       </Suspense>
+      
+      {/* Speed Insights for performance monitoring */}
+      <SpeedInsights />
     </div>
   );
 }

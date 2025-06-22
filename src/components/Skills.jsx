@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code, Database, Palette, Users, TrendingUp, Award } from 'lucide-react';
+import { Code, Database, TrendingUp, Users } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import './Skills.scss';
 
@@ -20,13 +20,6 @@ const Skills = () => {
     { id: 'tools', name: 'Tools & Platforms', icon: <TrendingUp size={24} /> },
     { id: 'soft', name: 'Soft Skills', icon: <Users size={24} /> }
   ];
-
-  const categoryIcons = {
-    frontend: <Code size={24} />,
-    backend: <Database size={24} />,
-    tools: <TrendingUp size={24} />,
-    soft: <Users size={24} />
-  };
 
   const getSkillLevel = (level) => {
     if (level >= 90) return 'Expert';

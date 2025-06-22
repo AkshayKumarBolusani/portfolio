@@ -1,52 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import './About.scss';
 import { Mail, Phone } from 'lucide-react';
 
 const About = () => {
-  const [counters, setCounters] = useState({
-    websites: 0,
-    projects: 0,
-    technologies: 0,
-    certificates: 0,
-  });
-
-  useEffect(() => {
-    // Start animation immediately
-    const targetValues = {
-      websites: portfolioData.stats[0].value,
-      projects: portfolioData.stats[1].value,
-      technologies: portfolioData.stats[2].value,
-      certificates: portfolioData.stats[3].value,
-    };
-
-    const duration = 2000;
-    const steps = 60;
-    const stepDuration = duration / steps;
-
-    let currentStep = 0;
-
-    const interval = setInterval(() => {
-      currentStep++;
-      const progress = currentStep / steps;
-
-      setCounters({
-        websites: Math.floor(targetValues.websites * progress),
-        projects: Math.floor(targetValues.projects * progress),
-        technologies: Math.floor(targetValues.technologies * progress),
-        certificates: Math.floor(targetValues.certificates * progress),
-      });
-
-      if (currentStep >= steps) {
-        clearInterval(interval);
-        setCounters(targetValues);
-      }
-    }, stepDuration);
-
-    return () => clearInterval(interval);
-  }, []);
-
   const highlights = [
     "React and modern web development",
     "Android Studio and mobile app development",

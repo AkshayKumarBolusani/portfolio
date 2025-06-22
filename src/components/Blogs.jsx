@@ -144,7 +144,11 @@ const Blogs = () => {
                   onClick={() => openBlogModal(blog)}
                 >
                   <div className="blog-image">
-                    <img src={blog.featuredImage} alt={blog.title} loading="lazy" />
+                    <img 
+                      src={blog.featuredImage} 
+                      alt={blog.title}
+                      loading="lazy"
+                    />
                     <div className="blog-overlay">
                       <ArrowRight size={24} />
                     </div>
@@ -227,7 +231,7 @@ const Blogs = () => {
                     <div className="gallery-main">
                       <img
                         src={selectedBlog.gallery[currentImageIndex]}
-                        alt={`${selectedBlog.title} - Image ${currentImageIndex + 1}`}
+                        alt={`${selectedBlog.title} - ${currentImageIndex + 1}`}
                       />
                       {selectedBlog.gallery.length > 1 && (
                         <>

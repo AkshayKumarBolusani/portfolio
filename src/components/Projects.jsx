@@ -7,8 +7,9 @@ import './Projects.scss';
 
 const Projects = () => {
   const [ref, inView] = useInView({
-    threshold: 0.3,
+    threshold: 0.1,
     triggerOnce: true,
+    rootMargin: '0px 0px -100px 0px'
   });
 
   const [selectedProject, setSelectedProject] = useState(null);
@@ -39,7 +40,7 @@ const Projects = () => {
         <motion.div
           className="section-header"
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <h2 className="section-title">My Projects</h2>
@@ -52,7 +53,7 @@ const Projects = () => {
         <motion.div
           className="projects-filter"
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="filter-tabs">
@@ -62,7 +63,7 @@ const Projects = () => {
                 className={`filter-tab ${filter === filterOption.id ? 'active' : ''}`}
                 onClick={() => setFilter(filterOption.id)}
                 initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -77,7 +78,7 @@ const Projects = () => {
         <motion.div
           className="projects-grid"
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           {filteredProjects.map((project, index) => (
@@ -85,7 +86,7 @@ const Projects = () => {
               key={project.id}
               className="project-card glass"
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              animate={inView ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
               whileHover={{ 
                 scale: 1.02,
@@ -93,7 +94,7 @@ const Projects = () => {
               }}
             >
               <div className="project-image">
-                <img src={project.image} alt={project.title} />
+                <img src={project.image} alt={project.title} loading="lazy" />
                 <div className="project-overlay">
                   <motion.button
                     className="view-project-btn"
@@ -190,30 +191,26 @@ const Projects = () => {
                         </span>
                       ))}
                     </div>
-
+                    
                     <div className="modal-actions">
-                      <motion.a
+                      <a
                         href={selectedProject.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn btn-primary"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        className="btn demo-btn"
                       >
-                        <ExternalLink size={20} />
-                        View Live Demo
-                      </motion.a>
-                      <motion.a
+                        <ExternalLink size={16} />
+                        Live Demo
+                      </a>
+                      <a
                         href={selectedProject.code}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn btn-secondary"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        className="btn code-btn"
                       >
-                        <Github size={20} />
-                        View Source Code
-                      </motion.a>
+                        <Github size={16} />
+                        View Code
+                      </a>
                     </div>
                   </div>
                 </div>
