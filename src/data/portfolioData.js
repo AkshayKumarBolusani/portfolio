@@ -65,9 +65,9 @@ export const portfolioData = {
       id: 1,
       title: "Weather App",
       description: "basically it grabs user location and shows weather dats using API. BG of the app changes based on the wethare which makes it look pretty cool.",
-      image: "https://github.com/AkshayKumarBolusani/new/blob/project-image/s1.png",
-      tags: ["Android Development", "UI/UX Design", "Mobile App", "React Native"],
-      demo: "https://akshay-weather-project.vercel.app/ ",
+      image: "https://raw.githubusercontent.com/AkshayKumarBolusani/new/project-image/s1.png",
+      tags: ["Web App", "React", "API", "Weather App"],
+      demo: "https://akshay-weather-project.vercel.app/",
       code: "https://github.com/AkshayKumarBolusani/weather-project",
       featured: true
     },
