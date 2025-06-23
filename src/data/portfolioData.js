@@ -63,12 +63,12 @@ export const portfolioData = {
   projects: [
     {
       id: 1,
-      title: "ShopTalk App Development",
-      description: "Mobile application development project focusing on creating a comprehensive shopping and communication platform with modern UI/UX design.",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
+      title: "Weather App",
+      description: "basically it grabs user location and shows weather dats using API. BG of the app changes based on the wethare which makes it look pretty cool.",
+      image: "https://github.com/AkshayKumarBolusani/new/blob/project-image/s1.png",
       tags: ["Android Development", "UI/UX Design", "Mobile App", "React Native"],
-      demo: "https://demo-shoptalk.example.com",
-      code: "https://github.com/AkshayKumarBolusani/shop-talk-app",
+      demo: "https://akshay-weather-project.vercel.app/ ",
+      code: "https://github.com/AkshayKumarBolusani/weather-project",
       featured: true
     },
     {
