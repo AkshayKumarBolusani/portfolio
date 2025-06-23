@@ -62,14 +62,14 @@ export const portfolioData = {
   
   projects: [
     {
-      id: 1,
-      title: "Weather App",
-      description: "basically it grabs user location and shows weather dats using API. BG of the app changes based on the wethare which makes it look pretty cool.",
-      image: "https://raw.githubusercontent.com/AkshayKumarBolusani/new/project-image/s1.png",
-      tags: ["Web App", "React", "API", "Weather App"],
-      demo: "https://akshay-weather-project.vercel.app/",
-      code: "https://github.com/AkshayKumarBolusani/weather-project",
-      featured: true
+  id: 1,
+  title: "Weather App",
+  description: "Grabs the user's location and displays weather data using an API. The background changes based on the weather, making it visually appealing.",
+  image: "https://raw.githubusercontent.com/AkshayKumarBolusani/new/project-image/s1.png",
+  tags: ["Web App", "React", "API", "Weather App"],
+  demo: "https://akshay-weather-project.vercel.app/",
+  code: "https://github.com/AkshayKumarBolusani/weather-project",
+  featured: true
     },
     {
       id: 2,
