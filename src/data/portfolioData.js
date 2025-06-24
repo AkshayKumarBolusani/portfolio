@@ -73,12 +73,12 @@ export const portfolioData = {
     },
     {
       id: 2,
-      title: "WordPress Website Portfolio",
-      description: "Collection of 75+ WordPress websites developed for various clients, showcasing diverse design styles and functionality.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      tags: ["WordPress", "Web Development", "Responsive Design", "CMS"],
-      demo: "https://portfolio.example.com",
-      code: "https://github.com/AkshayKumarBolusani/wordpress-portfolio",
+      title: "AI Blog Generator",
+      description: "Instantly Generates the Blogs based on the title using the Gemini API. With neat UI it attracts the users.",
+      image: "https://raw.githubusercontent.com/AkshayKumarBolusani/new/blob/main/S2.png",
+      tags: ["Gemini API", "AI Generated", "Appealing Design", "Blogs"],
+      demo: "https://akshayaibloggenerator.vercel.app/",
+      code: "https://github.com/AkshayKumarBolusani/AI-Blog-Generator",
       featured: true
     },
     {
