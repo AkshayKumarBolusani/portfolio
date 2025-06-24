@@ -71,7 +71,7 @@ export const portfolioData = {
   code: "https://github.com/AkshayKumarBolusani/weather-project",
   featured: true
     },
-{
+  {
   id: 2,
   title: "AI Blog Generator",
   description: "Instantly Generates the Blogs based on the title using the Gemini API. With neat UI it attracts the users.",
@@ -80,15 +80,15 @@ export const portfolioData = {
   demo: "https://akshayaibloggenerator.vercel.app/",
   code: "https://github.com/AkshayKumarBolusani/AI-Blog-Generator",
   featured: true
-},
+  },
     {
       id: 3,
-      title: "React Portfolio Website",
-      description: "Modern portfolio website built with React, featuring glassmorphism design, smooth animations, and responsive layout.",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
-      tags: ["React", "Framer Motion", "SCSS", "Glassmorphism"],
-      demo: "https://akshay-portfolio.example.com",
-      code: "https://github.com/AkshayKumarBolusani/react-portfolio",
+      title: "Modern News Website",
+      description: "News Website with modern theme and has various categories of new like Popular, latest, Global, National etc,..",
+      image: "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/S3.png",
+      tags: ["News", "NewsAPI", "Modern", "Gradient"],
+      demo: "https://akshay-modern-news.vercel.app/",
+      code: "https://github.com/AkshayKumarBolusani/Modern-News",
       featured: true
     },
     {
