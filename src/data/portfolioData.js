@@ -71,16 +71,16 @@ export const portfolioData = {
   code: "https://github.com/AkshayKumarBolusani/weather-project",
   featured: true
     },
-    {
-      id: 2,
-      title: "AI Blog Generator",
-      description: "Instantly Generates the Blogs based on the title using the Gemini API. With neat UI it attracts the users.",
-      image: "https://raw.githubusercontent.com/AkshayKumarBolusani/new/blob/main/S2.png",
-      tags: ["Gemini API", "AI Generated", "Appealing Design", "Blogs"],
-      demo: "https://akshayaibloggenerator.vercel.app/",
-      code: "https://github.com/AkshayKumarBolusani/AI-Blog-Generator",
-      featured: true
-    },
+{
+  id: 2,
+  title: "AI Blog Generator",
+  description: "Instantly Generates the Blogs based on the title using the Gemini API. With neat UI it attracts the users.",
+  image: "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/S2.png",
+  tags: ["Gemini API", "AI Generated", "Appealing Design", "Blogs"],
+  demo: "https://akshayaibloggenerator.vercel.app/",
+  code: "https://github.com/AkshayKumarBolusani/AI-Blog-Generator",
+  featured: true
+},
     {
       id: 3,
       title: "React Portfolio Website",
