@@ -93,13 +93,13 @@ export const portfolioData = {
     },
     {
       id: 4,
-      title: "Data Analytics Dashboard",
+      title: "Simple React Tools",
       description: "Interactive data visualization dashboard built with Python and modern web technologies for business intelligence.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      tags: ["Python", "Data Analytics", "Visualization", "Dashboard"],
-      demo: "https://analytics-dashboard.example.com",
-      code: "https://github.com/AkshayKumarBolusani/data-analytics",
-      featured: false
+      image: "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/S4.png",
+      tags: ["React Tools", "Dashboard", "Password", "Colors"],
+      demo: "https://akshay-simple-react-tools.vercel.app/",
+      code: "https://github.com/AkshayKumarBolusani/Simple-React-Tools",
+      featured: true
     },
     {
       id: 5,
