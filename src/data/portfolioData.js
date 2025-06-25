@@ -103,13 +103,13 @@ export const portfolioData = {
     },
     {
       id: 5,
-      title: "E-Learning Platform",
-      description: "Comprehensive e-learning platform with course management, user authentication, and interactive learning features.",
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop",
-      tags: ["React", "Node.js", "MongoDB", "Express.js"],
-      demo: "https://elearning-platform.example.com",
-      code: "https://github.com/AkshayKumarBolusani/e-learning-platform",
-      featured: false
+      title: "Banking App",
+      description: "Create accounts, check balance, deposit/withdraw, Transfer between accounts. Modern UI Banking App made with TypeScript.",
+      image: "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/S5.png",
+      tags: ["JSX", "React", "Tailwind", "TypeScript"],
+      demo: "https://akshay-banking-app-ruddy.vercel.app/",
+      code: "https://github.com/AkshayKumarBolusani/Banking-App",
+      featured: true
     },
     {
       id: 6,
