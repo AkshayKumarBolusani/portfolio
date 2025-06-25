@@ -7,7 +7,7 @@ export const portfolioData = {
     email: "akshaykumarbolusani@gmail.com",
     phone: "7396991624",
     bio: "Passionate Computer Science student with hands-on experience in React, Android Studio, and Web Development, eager to innovate and solve real-world challenges.",
-    avatar: "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/passport photo.jpg",
+    avatar: "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/passport-photo.jpg",
     social: {
       github: "https://github.com/AkshayKumarBolusani",
       linkedin: "https://linkedin.com/in/akshaykumarbolusani",
