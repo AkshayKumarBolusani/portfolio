@@ -349,9 +349,9 @@ export const portfolioData = {
 ],
   
   languages: [
-    { name: "English", proficiency: "Full Professional Proficiency" },
-    { name: "Hindi", proficiency: "Full Professional Proficiency" },
-    { name: "Telugu", proficiency: "Native Proficiency" }
+    { name: "English", proficiency: "Fluent" },
+    { name: "Hindi", proficiency: "Fluent" },
+    { name: "Telugu", proficiency: "Native" }
   ],
   
   interests: [

@@ -146,7 +146,7 @@ const Blogs = () => {
                   <div className="blog-image">
                     <img 
                       src={blog.featuredImage} 
-                      alt={blog.title}
+                      alt={`Blog post: ${blog.title} by Akshay Kumar Bolusani`}
                       loading="lazy"
                     />
                     <div className="blog-overlay">
@@ -231,7 +231,7 @@ const Blogs = () => {
                     <div className="gallery-main">
                       <img
                         src={selectedBlog.gallery[currentImageIndex]}
-                        alt={`${selectedBlog.title} - ${currentImageIndex + 1}`}
+                        alt={`Gallery image ${currentImageIndex + 1} for ${selectedBlog.title} by Akshay Kumar Bolusani`}
                       />
                       {selectedBlog.gallery.length > 1 && (
                         <>

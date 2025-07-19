@@ -90,7 +90,7 @@ const Certificates = () => {
                 ref={(el) => (certificateRefs.current[`${certificate.id}-${index}`] = el)}
               >
                 <div className="certificate-image">
-                  <img src={certificate.image} alt={certificate.name} />
+                  <img src={certificate.image} alt={`Certificate: ${certificate.name} issued by ${certificate.issuer} - Akshay Kumar Bolusani`} />
                   <div className="certificate-overlay">
                     <Award size={24} />
                     <span>View Details</span>
@@ -152,7 +152,7 @@ const Certificates = () => {
 
               <div className="modal-content">
                 <div className="modal-image">
-                  <img src={selectedCertificate.image} alt={selectedCertificate.name} />
+                  <img src={selectedCertificate.image} alt={`Certificate: ${selectedCertificate.name} issued by ${selectedCertificate.issuer} - Akshay Kumar Bolusani`} />
                 </div>
 
                 <div className="modal-details">

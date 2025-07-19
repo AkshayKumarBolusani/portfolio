@@ -94,7 +94,7 @@ const Projects = () => {
               }}
             >
               <div className="project-image">
-                <img src={project.image} alt={project.title} loading="lazy" />
+                <img src={project.image} alt={`Screenshot of ${project.title} by Akshay Kumar Bolusani`} loading="lazy" />
                 <div className="project-overlay">
                   <motion.button
                     className="view-project-btn"
@@ -177,7 +177,7 @@ const Projects = () => {
 
                 <div className="modal-content">
                   <div className="modal-image">
-                    <img src={selectedProject.image} alt={selectedProject.title} />
+                    <img src={selectedProject.image} alt={`Screenshot of ${selectedProject.title} by Akshay Kumar Bolusani`} />
                   </div>
                   
                   <div className="modal-info">
