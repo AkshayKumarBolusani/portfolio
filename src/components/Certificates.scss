@@ -1,0 +1,455 @@
+/* Certificates.scss */
+
+// Remove local :root variables and use global theme variables from App.scss
+
+.certificates {
+  padding: 5rem 0;
+  background: var(--bg-secondary-light);
+  
+  .dark & {
+    background: var(--bg-secondary-dark);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--text-secondary-light);
+      max-width: 600px;
+      margin: 0 auto;
+      .dark & {
+        color: var(--text-secondary-dark);
+      }
+    }
+  }
+
+  .certificates-container {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 0;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--bg-secondary-light) 0%, transparent 100%);
+      .dark & {
+        background: linear-gradient(90deg, var(--bg-secondary-dark) 0%, transparent 100%);
+      }
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(90deg, transparent 0%, var(--bg-secondary-light) 100%);
+      .dark & {
+        background: linear-gradient(90deg, transparent 0%, var(--bg-secondary-dark) 100%);
+      }
+    }
+  }
+
+  .certificates-scroll {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1rem 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    cursor: grab;
+    user-select: none;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scroll-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--bg-primary-light);
+      border: none;
+      padding: 0.5rem;
+      z-index: 10;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+      .dark & {
+        background: var(--bg-primary-dark);
+      }
+      &.left {
+        left: 1rem;
+      }
+      &.right {
+        right: 1rem;
+      }
+      &:hover {
+        background: var(--accent-light);
+        color: white;
+        .dark & {
+          background: var(--accent-dark);
+        }
+      }
+    }
+
+    .certificate-card {
+      flex: 0 0 calc(20% - 1.2rem);
+      background: var(--bg-primary-light);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--border-light);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      .dark & {
+        background: var(--bg-primary-dark);
+        border-color: var(--border-dark);
+      }
+      &:hover {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        border-color: var(--accent-light);
+        transform: translateY(-5px);
+        .dark & {
+          border-color: var(--accent-dark);
+        }
+        .certificate-overlay {
+          opacity: 1;
+        }
+        img {
+          transform: scale(1.1);
+        }
+      }
+      @media (max-width: 992px) {
+        flex: 0 0 90%;
+      }
+      @media (max-width: 600px) {
+        flex: 0 0 100%;
+      }
+    }
+  }
+
+  .certificate-image {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .certificate-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    svg {
+      margin-bottom: 0.5rem;
+    }
+    span {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  }
+
+  .certificate-content {
+    padding: 0.75rem 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0;
+      color: var(--text-primary-light);
+      .dark & {
+        color: var(--text-primary-dark);
+      }
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .certificate-meta,
+    p {
+      display: none;
+    }
+  }
+
+  /* Modal styles */
+  .certificate-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+  }
+  .certificate-modal {
+    background: var(--bg-primary-light);
+    border-radius: 20px;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-light);
+    color: var(--text-primary-light);
+    .dark & {
+      background: var(--bg-primary-dark);
+      border-color: var(--border-dark);
+      color: var(--text-primary-dark);
+    }
+  }
+  .modal-details {
+    padding: 2rem;
+    color: var(--text-primary-light);
+    .dark & {
+      color: var(--text-primary-dark);
+    }
+    h2, h3 {
+      color: var(--text-primary-light);
+      .dark & {
+        color: var(--text-primary-dark);
+      }
+    }
+    p, span, ul li {
+      color: var(--text-secondary-light);
+      .dark & {
+        color: var(--text-secondary-dark);
+      }
+    }
+  }
+  .btn-primary {
+    background: var(--accent-light);
+    color: white;
+    .dark & {
+      background: var(--accent-dark);
+    }
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    &:hover {
+      background: var(--accent-light);
+      .dark & {
+        background: var(--accent-dark);
+      }
+      transform: scale(1.1);
+    }
+  }
+  .modal-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    height: 100%;
+    overflow: hidden;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+  }
+  .modal-image {
+    max-height: 80vh;
+    overflow: hidden;
+    img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  .modal-details {
+    overflow-y: auto;
+    padding: 1rem 1.5rem;
+    max-height: 80vh;
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary-light);
+      .dark & {
+        color: var(--text-primary-dark);
+      }
+    }
+    .modal-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1rem;
+        color: var(--text-secondary-light);
+        .dark & {
+          color: var(--text-secondary-dark);
+        }
+        svg {
+          color: var(--accent-light);
+          .dark & {
+            color: var(--accent-dark);
+          }
+        }
+        strong {
+          color: var(--text-primary-light);
+          .dark & {
+            color: var(--text-primary-dark);
+          }
+        }
+      }
+    }
+    .modal-description,
+    .modal-skills,
+    .modal-tasks {
+      margin-bottom: 2rem;
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--text-primary-light);
+        .dark & {
+          color: var(--text-primary-dark);
+        }
+      }
+    }
+    .modal-description p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-secondary-light);
+      .dark & {
+        color: var(--text-secondary-dark);
+      }
+    }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      .skill-tag {
+        background: var(--accent-light);
+        color: white;
+        .dark & {
+          background: var(--accent-dark);
+        }
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+    }
+    .modal-tasks ul {
+      list-style: none;
+      padding: 0;
+      li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: var(--text-secondary-light);
+        .dark & {
+          color: var(--text-secondary-dark);
+        }
+        &::before {
+          content: '✓';
+          position: absolute;
+          left: 0;
+          color: var(--accent-light);
+          .dark & {
+            color: var(--accent-dark);
+          }
+          font-weight: bold;
+        }
+      }
+    }
+    .modal-actions {
+      margin-top: 2rem;
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: var(--accent-light);
+        color: white;
+        .dark & {
+          background: var(--accent-dark);
+        }
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        &:hover {
+          filter: brightness(1.1);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+}

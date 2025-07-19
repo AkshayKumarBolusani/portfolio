@@ -1,0 +1,309 @@
+.experience {
+  position: relative;
+  
+  .timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--gradient-primary);
+      transform: translateX(-50%);
+      
+      @media (max-width: 768px) {
+        left: 2rem;
+      }
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 2rem;
+        width: 20px;
+        height: 20px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        border: 4px solid var(--bg-primary-dark);
+        z-index: 10;
+        
+        .dark & {
+          border-color: var(--bg-primary-dark);
+        }
+        
+        .light & {
+          border-color: var(--bg-primary-light);
+        }
+        
+        @media (max-width: 768px) {
+          left: 1rem;
+        }
+      }
+      
+      &.left {
+        padding-right: 55%;
+        
+        &::before {
+          right: -10px;
+        }
+        
+        @media (max-width: 768px) {
+          padding-right: 0;
+          padding-left: 4rem;
+        }
+      }
+      
+      &.right {
+        padding-left: 55%;
+        
+        &::before {
+          left: -10px;
+        }
+        
+        @media (max-width: 768px) {
+          padding-left: 4rem;
+        }
+      }
+      
+      .timeline-content {
+        position: relative;
+        padding: 2rem;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        margin: 0 1rem;
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-header {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+          
+          .company-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          
+          .company-info {
+            flex: 1;
+            
+            .company-name {
+              font-size: 1.3rem;
+              font-weight: 700;
+              margin-bottom: 0.25rem;
+              color: var(--text-primary-dark);
+              
+              .dark & {
+                color: var(--text-primary-dark);
+              }
+              
+              .light & {
+                color: var(--text-primary-light);
+              }
+            }
+            
+            .position {
+              font-size: 1.1rem;
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+              background: var(--gradient-primary);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+            }
+            
+            .period-location {
+              display: flex;
+              gap: 1rem;
+              font-size: 0.9rem;
+              color: var(--text-secondary-dark);
+              
+              .dark & {
+                color: var(--text-secondary-dark);
+              }
+              
+              .light & {
+                color: var(--text-secondary-light);
+              }
+              
+              .period {
+                font-weight: 600;
+              }
+              
+              .location {
+                opacity: 0.8;
+              }
+            }
+          }
+        }
+        
+        .description {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+          color: var(--text-secondary-dark);
+          
+          .dark & {
+            color: var(--text-secondary-dark);
+          }
+          
+          .light & {
+            color: var(--text-secondary-light);
+          }
+        }
+        
+        .achievements {
+          h5 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary-dark);
+            
+            .dark & {
+              color: var(--text-primary-dark);
+            }
+            
+            .light & {
+              color: var(--text-primary-light);
+            }
+          }
+          
+          ul {
+            list-style: none;
+            padding: 0;
+            
+            li {
+              position: relative;
+              padding: 0.5rem 0 0.5rem 1.5rem;
+              font-size: 0.95rem;
+              color: var(--text-secondary-dark);
+              
+              .dark & {
+                color: var(--text-secondary-dark);
+              }
+              
+              .light & {
+                color: var(--text-secondary-light);
+              }
+              
+              &::before {
+                content: '▸';
+                position: absolute;
+                left: 0;
+                color: var(--accent-dark);
+                font-weight: bold;
+                
+                .dark & {
+                  color: var(--accent-dark);
+                }
+                
+                .light & {
+                  color: var(--accent-light);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .experience {
+    .timeline {
+      padding: 1rem 0;
+      
+      .timeline-item {
+        margin-bottom: 2rem;
+        
+        .timeline-content {
+          padding: 1.5rem;
+          
+          .timeline-header {
+            .company-logo {
+              width: 50px;
+              height: 50px;
+            }
+            
+            .company-info {
+              .company-name {
+                font-size: 1.1rem;
+              }
+              
+              .position {
+                font-size: 1rem;
+              }
+              
+              .period-location {
+                flex-direction: column;
+                gap: 0.25rem;
+              }
+            }
+          }
+          
+          .description {
+            font-size: 0.9rem;
+          }
+          
+          .achievements {
+            h5 {
+              font-size: 0.9rem;
+            }
+            
+            ul li {
+              font-size: 0.85rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .experience {
+    .timeline {
+      .timeline-item {
+        .timeline-content {
+          padding: 1rem;
+          
+          .timeline-header {
+            flex-direction: column;
+            text-align: center;
+            gap: 0.5rem;
+            
+            .company-logo {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+} 

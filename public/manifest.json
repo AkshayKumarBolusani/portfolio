@@ -1,0 +1,25 @@
+{
+  "short_name": "Akshay's Portfolio",
+  "name": "Akshay Kumar Bolusani - Professional Portfolio",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/AkshayKumarBolusani/React-Tools/main/akshay.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/AkshayKumarBolusani/React-Tools/main/akshay.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/AkshayKumarBolusani/React-Tools/main/akshay.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

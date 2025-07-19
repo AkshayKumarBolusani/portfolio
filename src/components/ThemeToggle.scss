@@ -1,0 +1,108 @@
+.theme-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  .dark & {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .light & {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    
+    .dark & {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .light & {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+  
+  .toggle-icon {
+    position: relative;
+    z-index: 2;
+    color: var(--text-primary-dark);
+    
+    .dark & {
+      color: var(--text-primary-dark);
+    }
+    
+    .light & {
+      color: var(--text-primary-light);
+    }
+  }
+  
+  .toggle-background {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    
+    .toggle-icon {
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+    
+    .toggle-background {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    
+    .toggle-icon {
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    
+    .toggle-background {
+      width: 14px;
+      height: 14px;
+    }
+  }
+} 

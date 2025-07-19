@@ -1,0 +1,606 @@
+.projects {
+  position: relative;
+  overflow-x: hidden; // Prevent horizontal scroll
+  
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  // Filter Tabs
+  .projects-filter {
+    margin-bottom: 3rem;
+    
+    @media (max-width: 768px) {
+      margin-bottom: 2rem;
+    }
+  }
+  
+  .filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    
+    @media (max-width: 768px) {
+      gap: 0.5rem;
+    }
+  }
+  
+  .filter-tab {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text-secondary-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    min-height: 44px; // Touch-friendly
+    
+    .dark & {
+      color: var(--text-secondary-dark);
+    }
+    
+    &:hover {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent-light);
+      
+      .dark & {
+        background: rgba(96, 165, 250, 0.1);
+        color: var(--accent-dark);
+      }
+      
+      @media (max-width: 768px) {
+        transform: none; // Disable hover on mobile
+      }
+    }
+    
+    &.active {
+      background: var(--gradient-primary);
+      color: white;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 480px) {
+      padding: 8px 16px;
+      font-size: 0.8rem;
+    }
+  }
+  
+  // Projects Grid
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      // Ensure projects are visible on mobile
+      opacity: 1 !important;
+    }
+    
+    @media (max-width: 480px) {
+      gap: 1rem;
+    }
+  }
+  
+  .project-card {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    // Ensure cards are always visible
+    opacity: 1 !important;
+    transform: none !important;
+    
+    @media (max-width: 768px) {
+      // Force visibility on mobile
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+    }
+    
+    &:hover {
+      transform: translateY(-5px);
+      
+      @media (max-width: 768px) {
+        transform: none; // Disable hover on mobile
+      }
+    }
+    
+    .project-image {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      
+      @media (max-width: 768px) {
+        height: 180px;
+      }
+      
+      @media (max-width: 480px) {
+        height: 160px;
+      }
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+      &:hover img {
+        transform: scale(1.05);
+        
+        @media (max-width: 768px) {
+          transform: none; // Disable hover on mobile
+        }
+      }
+    }
+    
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      
+      &:hover {
+        opacity: 1;
+        
+        @media (max-width: 768px) {
+          opacity: 0; // Disable hover on mobile
+        }
+      }
+    }
+    
+    .view-project-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 12px 20px;
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      min-height: 44px; // Touch-friendly
+      
+      &:hover {
+        transform: scale(1.05);
+        
+        @media (max-width: 768px) {
+          transform: none; // Disable hover on mobile
+        }
+      }
+      
+      @media (max-width: 480px) {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+      }
+    }
+    
+    .featured-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--gradient-secondary);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      
+      @media (max-width: 480px) {
+        font-size: 0.7rem;
+        padding: 3px 10px;
+      }
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+      
+      @media (max-width: 768px) {
+        padding: 1rem;
+      }
+      
+      .project-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--text-primary-light);
+        
+        .dark & {
+          color: var(--text-primary-dark);
+        }
+        
+        @media (max-width: 480px) {
+          font-size: 1.1rem;
+          margin-bottom: 0.5rem;
+        }
+      }
+      
+      .project-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--text-secondary-light);
+        margin-bottom: 1rem;
+        
+        .dark & {
+          color: var(--text-secondary-dark);
+        }
+        
+        @media (max-width: 480px) {
+          font-size: 0.9rem;
+          margin-bottom: 0.75rem;
+        }
+      }
+      
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        
+        @media (max-width: 480px) {
+          gap: 0.25rem;
+          margin-bottom: 1rem;
+        }
+      }
+      
+      .project-tag {
+        background: rgba(59, 130, 246, 0.1);
+        color: var(--accent-light);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        
+        .dark & {
+          background: rgba(96, 165, 250, 0.1);
+          color: var(--accent-dark);
+        }
+        
+        @media (max-width: 480px) {
+          font-size: 0.7rem;
+          padding: 3px 10px;
+        }
+      }
+      
+      .project-actions {
+        display: flex;
+        gap: 1rem;
+        
+        @media (max-width: 480px) {
+          gap: 0.5rem;
+          flex-direction: column;
+        }
+      }
+      
+      .project-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        min-height: 44px; // Touch-friendly
+        justify-content: center;
+        
+        &.demo-btn {
+          background: var(--gradient-primary);
+          color: white;
+          flex: 1;
+        }
+        
+        &.code-btn {
+          background: transparent;
+          border: 2px solid var(--accent-light);
+          color: var(--accent-light);
+          
+          .dark & {
+            border-color: var(--accent-dark);
+            color: var(--accent-dark);
+          }
+          
+          &:hover {
+            background: var(--accent-light);
+            color: white;
+            
+            .dark & {
+              background: var(--accent-dark);
+            }
+          }
+        }
+        
+        &:hover {
+          transform: translateY(-2px);
+          
+          @media (max-width: 768px) {
+            transform: none; // Disable hover on mobile
+          }
+        }
+        
+        @media (max-width: 480px) {
+          padding: 12px 16px;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+  
+  // Project Modal
+  .project-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+    
+    @media (max-width: 768px) {
+      padding: 0.5rem;
+    }
+  }
+  
+  .project-modal {
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    border-radius: 16px;
+    
+    @media (max-width: 768px) {
+      max-height: 95vh;
+    }
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    z-index: 10;
+    transition: background 0.3s ease;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+    
+    @media (max-width: 480px) {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  
+  .modal-content {
+    padding: 2rem;
+    
+    @media (max-width: 768px) {
+      padding: 1.5rem;
+    }
+    
+    @media (max-width: 480px) {
+      padding: 1rem;
+    }
+  }
+  
+  .modal-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    
+    @media (max-width: 768px) {
+      height: 200px;
+      margin-bottom: 1rem;
+    }
+    
+    @media (max-width: 480px) {
+      height: 150px;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .modal-info {
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-primary-light);
+      
+      .dark & {
+        color: var(--text-primary-dark);
+      }
+      
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+      
+      @media (max-width: 480px) {
+        font-size: 1.2rem;
+      }
+    }
+    
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-secondary-light);
+      margin-bottom: 1.5rem;
+      
+      .dark & {
+        color: var(--text-secondary-dark);
+      }
+      
+      @media (max-width: 480px) {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  
+  .modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    
+    @media (max-width: 480px) {
+      gap: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  .modal-tag {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--accent-light);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    
+    .dark & {
+      background: rgba(96, 165, 250, 0.1);
+      color: var(--accent-dark);
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 0.8rem;
+      padding: 4px 12px;
+    }
+  }
+  
+  .modal-actions {
+    display: flex;
+    gap: 1rem;
+    
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 44px; // Touch-friendly
+      
+      @media (max-width: 480px) {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+// Mobile-specific optimizations
+@media (max-width: 768px) {
+  .projects {
+    // Ensure all content is visible on mobile
+    .project-card {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      display: block !important;
+      visibility: visible !important;
+    }
+    
+    // Reduce animation delays
+    .filter-tab {
+      animation-delay: 0.1s !important;
+    }
+    
+    .project-card {
+      animation-delay: 0.2s !important;
+    }
+
+    // Force visibility for all elements
+    .section-header,
+    .projects-filter,
+    .projects-grid {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+  }
+}
+
+// Performance optimizations for mobile
+@media (max-width: 768px) {
+  .projects-grid {
+    // Force single column layout
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+    gap: 1.5rem !important;
+  }
+  
+  .filter-tabs {
+    // Ensure tabs are properly spaced
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex !important;
+  }
+  
+  .project-card {
+    // Ensure cards load properly
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  // Optimize modal for mobile
+  .project-modal {
+    margin: 0.5rem;
+    width: calc(100% - 1rem);
+  }
+
+  // Ensure section is visible
+  .projects.section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: auto !important;
+  }
+} 
