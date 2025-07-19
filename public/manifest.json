@@ -3,18 +3,18 @@
   "name": "Akshay Kumar Bolusani - Professional Portfolio",
   "icons": [
     {
-      "src": "https://raw.githubusercontent.com/AkshayKumarBolusani/React-Tools/main/akshay.png",
+      "src": "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/passport-photo.jpg",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/png"
+      "type": "image/jpeg"
     },
     {
-      "src": "https://raw.githubusercontent.com/AkshayKumarBolusani/React-Tools/main/akshay.png",
-      "type": "image/png",
+      "src": "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/passport-photo.jpg",
+      "type": "image/jpeg",
       "sizes": "192x192"
     },
     {
-      "src": "https://raw.githubusercontent.com/AkshayKumarBolusani/React-Tools/main/akshay.png",
-      "type": "image/png",
+      "src": "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/passport-photo.jpg",
+      "type": "image/jpeg",
       "sizes": "512x512"
     }
   ],

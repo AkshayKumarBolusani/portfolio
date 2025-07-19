@@ -54,7 +54,6 @@ const Hero = () => {
         <meta name="description" content="Official portfolio of Akshay Kumar Bolusani (Bolusani Akshay Kumar, Bolusani Akshay, Akshay Bolusani). Explore projects, achievements, and contact information for Akshay Bolusani." />
         <meta name="keywords" content="Akshay Kumar Bolusani, Bolusani Akshay Kumar, Bolusani Akshay, Akshay Bolusani, portfolio, developer, web developer, software engineer, projects" />
         <link rel="canonical" href="https://akshaybolusani-portfolio.vercel.app/" />
-        {/* Background */}
         <div className="hero-background" />
         <div className="gradient-overlay" />
 

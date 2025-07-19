@@ -7,7 +7,7 @@ import './Certificates.scss';
 const Certificates = () => {
   const [selectedCertificate, setSelectedCertificate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalPosition, setModalPosition] = useState({ x: 0, y: 0 });
+  const [setModalPosition] = useState({ x: 0, y: 0 });
 
   const certificateRefs = useRef({});
   const scrollContainerRef = useRef(null);
