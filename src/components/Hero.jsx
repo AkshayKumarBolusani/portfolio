@@ -29,16 +29,15 @@ const Hero = () => {
   };
 
   const downloadCV = () => {
-    // Create a temporary link to download CV
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // Add your CV file to public folder
-    link.download = 'Akshay_Kumar_Bolusani_Resume.pdf';
+    link.href = 'https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/AkshayKumarBolusani_Resume.pdf';
+    link.download = 'Akshay_Kumar_Bolusani_Resume.pdf'; // Custom filename for the download
     link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
-
+  
   // Floating shapes with proper positioning
   const floatingShapes = [
     { id: 1, size: 40, x: 10, y: 20, delay: 0 },
@@ -153,15 +152,16 @@ const Hero = () => {
                   Get In Touch
                 </motion.button>
                 
-                <motion.button
+                {/* Download CV Button as anchor tag for best compatibility */}
+                <a
+                  href="https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/AkshayKumarBolusani_Resume.pdf"
+                  download="Akshay_Kumar_Bolusani_Resume.pdf"
                   className="btn btn-secondary download-cv-btn"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={downloadCV}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
                 >
                   <Download size={20} />
                   Download CV
-                </motion.button>
+                </a>
               </motion.div>
             </motion.div>
 

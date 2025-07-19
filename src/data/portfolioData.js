@@ -367,12 +367,12 @@ export const portfolioData = {
     {
       id: 1,
       name: "Digital Connect Team",
-      position: "Development Team",
+      position: "Graphic Designer",
       company: "Digital Connect",
-      content: "Akshay has been an exceptional team member, consistently delivering high-quality websites and showing great enthusiasm for learning new technologies.",
+      content: "Akshay has been an exceptional Graphic Designer, consistently delivering high-quality websites and designing posters and showing great enthusiasm for learning new technologies.",
       avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
       rating: 5,
-      link: "https://digitalconnect.com"
+      link: "https://digitalconnect.in"
     },
     {
       id: 2,
@@ -382,7 +382,7 @@ export const portfolioData = {
       content: "Akshay demonstrated strong technical skills during his internship, particularly in mobile app testing and UI/UX design. He's a quick learner and team player.",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
       rating: 5,
-      link: "https://infrabim.com"
+      link: null
     },
     {
       id: 3,
@@ -392,7 +392,7 @@ export const portfolioData = {
       content: "Akshay is a dedicated student with excellent problem-solving skills and a passion for technology. He consistently performs well in both theoretical and practical aspects.",
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
       rating: 5,
-      link: "https://mallaeredy.edu.in"
+      link: null
     },
     {
       id: 4,

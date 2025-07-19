@@ -90,7 +90,7 @@ const Certificates = () => {
                 ref={(el) => (certificateRefs.current[`${certificate.id}-${index}`] = el)}
               >
                 <div className="certificate-image">
-                  <img src={certificate.image} alt={`Certificate: ${certificate.name} issued by ${certificate.issuer} - Akshay Kumar Bolusani`} />
+                  <img src={certificate.image} alt={`Certificate: ${certificate.name} issued by ${certificate.issuer} - Akshay Kumar Bolusani`} loading="lazy" />
                   <div className="certificate-overlay">
                     <Award size={24} />
                     <span>View Details</span>
@@ -147,12 +147,12 @@ const Certificates = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <button className="modal-close" onClick={closeModal}>
-                <X size={24} />
+                <X size={24} aria-label="Close modal" />
               </button>
 
               <div className="modal-content">
                 <div className="modal-image">
-                  <img src={selectedCertificate.image} alt={`Certificate: ${selectedCertificate.name} issued by ${selectedCertificate.issuer} - Akshay Kumar Bolusani`} />
+                  <img src={selectedCertificate.image} alt={`Certificate: ${selectedCertificate.name} issued by ${selectedCertificate.issuer} - Akshay Kumar Bolusani`} loading="lazy" />
                 </div>
 
                 <div className="modal-details">
@@ -204,6 +204,7 @@ const Certificates = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-primary"
+                      aria-label="View Certificate"
                     >
                       <ExternalLink size={20} />
                       View Certificate

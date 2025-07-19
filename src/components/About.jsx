@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import './About.scss';
-import { Mail, Phone } from 'lucide-react';
 
 const About = () => {
   const highlights = [
@@ -45,6 +44,7 @@ const About = () => {
                   <img
                     src={portfolioData.personal.avatar}
                     alt="Akshay Kumar Bolusani - Profile"
+                    loading="lazy"
                     className="about-avatar"
                   />
                   <div className="image-overlay" />

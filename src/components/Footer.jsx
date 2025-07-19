@@ -95,6 +95,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="social-link"
+                      aria-label={social.name}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -180,6 +181,7 @@ const Footer = () => {
           <motion.button
             className="scroll-to-top"
             onClick={scrollToTop}
+            aria-label="Scroll to top"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}

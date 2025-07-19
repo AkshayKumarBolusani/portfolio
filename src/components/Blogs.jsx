@@ -222,7 +222,7 @@ const Blogs = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <button className="modal-close" onClick={closeBlogModal}>
-                  <X size={24} />
+                  <X size={24} aria-label="Close modal" />
                 </button>
 
                 <div className="modal-content">
@@ -232,14 +232,15 @@ const Blogs = () => {
                       <img
                         src={selectedBlog.gallery[currentImageIndex]}
                         alt={`Gallery image ${currentImageIndex + 1} for ${selectedBlog.title} by Akshay Kumar Bolusani`}
+                        loading="lazy"
                       />
                       {selectedBlog.gallery.length > 1 && (
                         <>
                           <button className="gallery-nav prev" onClick={prevImage}>
-                            <ArrowRight size={24} />
+                            <ArrowRight size={24} aria-label="Previous image" />
                           </button>
                           <button className="gallery-nav next" onClick={nextImage}>
-                            <ArrowRight size={24} />
+                            <ArrowRight size={24} aria-label="Next image" />
                           </button>
                         </>
                       )}

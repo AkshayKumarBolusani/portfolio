@@ -99,6 +99,7 @@ const Projects = () => {
                   <motion.button
                     className="view-project-btn"
                     onClick={() => openModal(project)}
+                    aria-label="View project details"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -172,12 +173,12 @@ const Projects = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <button className="modal-close" onClick={closeModal}>
-                  <X size={24} />
+                  <X size={24} aria-label="Close modal" />
                 </button>
 
                 <div className="modal-content">
                   <div className="modal-image">
-                    <img src={selectedProject.image} alt={`Screenshot of ${selectedProject.title} by Akshay Kumar Bolusani`} />
+                    <img src={selectedProject.image} alt={`Screenshot of ${selectedProject.title} by Akshay Kumar Bolusani`} loading="lazy" />
                   </div>
                   
                   <div className="modal-info">
