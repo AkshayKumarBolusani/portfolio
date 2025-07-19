@@ -31,7 +31,7 @@ const Hero = () => {
   const downloadCV = () => {
     const link = document.createElement('a');
     link.href = 'https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/AkshayKumarBolusani_Resume.pdf';
-    link.download = 'Akshay_Kumar_Bolusani_Resume.pdf'; // Custom filename for the download
+    link.download = 'AkshayKumarBolusani_Resume.pdf'; // Custom filename for the download
     link.target = '_blank';
     document.body.appendChild(link);
     link.click();
@@ -154,7 +154,7 @@ const Hero = () => {
                 
                 {/* Download CV Button as anchor tag for best compatibility */}
                 <a
-                  href="https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/AkshayKumarBolusani_Resume.pdf"
+                  href="/AkshayKumarBolusani_Resume.pdf"
                   download="Akshay_Kumar_Bolusani_Resume.pdf"
                   className="btn btn-secondary download-cv-btn"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
