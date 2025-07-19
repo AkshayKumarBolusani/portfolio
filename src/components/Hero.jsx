@@ -49,8 +49,8 @@ const Hero = () => {
 
   return (
     <>
-      <section ref={heroRef} className="hero" id="hero">
-        <title>Akshay Kumar Bolusani | Bolusani Akshay Kumar | Portfolio</title>
+      <section ref={heroRef} className="hero" id="hero" aria-labelledby="hero-title">
+        <title>Akshay Kumar Bolusani | Portfolio</title>
         <meta name="description" content="Official portfolio of Akshay Kumar Bolusani (Bolusani Akshay Kumar, Bolusani Akshay, Akshay Bolusani). Explore projects, achievements, and contact information for Akshay Bolusani." />
         <meta name="keywords" content="Akshay Kumar Bolusani, Bolusani Akshay Kumar, Bolusani Akshay, Akshay Bolusani, portfolio, developer, web developer, software engineer, projects" />
         <link rel="canonical" href="https://akshaybolusani-portfolio.vercel.app/" />
@@ -100,6 +100,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <motion.h1
+                id="hero-title"
                 className="hero-name"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}

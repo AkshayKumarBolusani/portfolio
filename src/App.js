@@ -56,13 +56,11 @@ function App() {
 
   return (
     <div className={`App ${theme}`}>
-      <FloatingParticles />
-      
-      {/* Theme Toggle */}
-      <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-      
-      {/* Main Content */}
-      <main>
+      <header>
+        <FloatingParticles />
+        <ThemeToggle isDarkMode={theme === 'dark'} toggleTheme={toggleTheme} />
+      </header>
+      <main id="main-content">
         <Suspense fallback={<SectionLoader />}>
           <Hero />
         </Suspense>
@@ -110,9 +108,11 @@ function App() {
       
       <Analytics />
       
-      <Suspense fallback={<SectionLoader />}>
-        <Footer />
-      </Suspense>
+      <footer>
+        <Suspense fallback={<SectionLoader />}>
+          <Footer />
+        </Suspense>
+      </footer>
       
       {/* Speed Insights for performance monitoring */}
       <SpeedInsights />

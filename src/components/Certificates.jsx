@@ -120,44 +120,37 @@ const Certificates = () => {
 
       {/* Modal */}
       <AnimatePresence>
-        {isModalOpen && selectedCertificate && (
+        {isModalOpen && (
           <motion.div
             className="certificate-modal-overlay"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="certificate-modal-title"
+            aria-describedby="certificate-modal-desc"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeModal}
+            style={{ zIndex: 1000 }}
           >
             <motion.div
               className="certificate-modal"
-              initial={{
-                opacity: 0,
-                scale: 0.8,
-                x: modalPosition.x - window.innerWidth / 2,
-                y: modalPosition.y - window.innerHeight / 2,
-              }}
-              animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-              exit={{
-                opacity: 0,
-                scale: 0.8,
-                x: modalPosition.x - window.innerWidth / 2,
-                y: modalPosition.y - window.innerHeight / 2,
-              }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              onClick={e => e.stopPropagation()}
+              style={{ outline: 'none' }}
+              tabIndex={-1}
             >
-              <button className="modal-close" onClick={closeModal}>
+              <button className="modal-close" onClick={closeModal} aria-label="Close modal">
                 <X size={24} aria-label="Close modal" />
               </button>
-
               <div className="modal-content">
                 <div className="modal-image">
                   <img src={selectedCertificate.image} alt={`Certificate: ${selectedCertificate.name} issued by ${selectedCertificate.issuer} - Akshay Kumar Bolusani`} loading="lazy" />
                 </div>
-
                 <div className="modal-details">
-                  <h2>{selectedCertificate.name}</h2>
-
+                  <h2 id="certificate-modal-title">{selectedCertificate.name}</h2>
                   <div className="modal-meta">
                     <div className="meta-item">
                       <Building size={20} />
@@ -172,8 +165,7 @@ const Certificates = () => {
                       </span>
                     </div>
                   </div>
-
-                  <div className="modal-description">
+                  <div className="modal-description" id="certificate-modal-desc">
                     <h3>Description</h3>
                     <p>{selectedCertificate.description}</p>
                   </div>
