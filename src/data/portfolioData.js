@@ -417,7 +417,7 @@ export const portfolioData = {
   readTime: 5,
   gallery: [
     "http://willowwoods.co.in/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-27-at-23.11.49-scaled.jpeg",
-    "http://willowwoods.co.in/wp-content/uploads/2025/07/IMG_5147-1.heic",
+    "http://willowwoods.co.in/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-29-at-10.53.05-scaled.jpeg",
     "http://willowwoods.co.in/wp-content/uploads/2025/07/DSC02417-scaled.jpg",
     "http://willowwoods.co.in/wp-content/uploads/2025/07/DSC01332-scaled.jpg"
   ],
