@@ -408,39 +408,67 @@ export const portfolioData = {
   
   blogs: [
     {
-      id: 1,
-      title: "Building Modern React Applications with TypeScript",
-      description: "A comprehensive guide to building scalable React applications using TypeScript, covering best practices, patterns, and advanced features.",
-      featuredImage: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop",
-      category: "Development",
-      date: "2024-01-15",
-      readTime: 8,
-      gallery: [
-        "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop",
-        "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=500&fit=crop",
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=500&fit=crop"
-      ],
-      content: `
-        <h2>Introduction to TypeScript in React</h2>
-        <p>TypeScript has become an essential tool for building large-scale React applications. It provides static type checking, better IDE support, and helps catch errors early in development.</p>
-        
-        <h3>Setting Up TypeScript with React</h3>
-        <p>To get started with TypeScript in your React project, you'll need to install the necessary dependencies:</p>
-        <pre><code>npm install --save-dev typescript @types/react @types/react-dom</code></pre>
-        
-        <h3>Key Benefits</h3>
-        <ul>
-          <li>Static type checking</li>
-          <li>Better IDE support with autocomplete</li>
-          <li>Early error detection</li>
-          <li>Improved code documentation</li>
-        </ul>
-        
-        <blockquote>
-          TypeScript is not just about types - it's about building better software with confidence.
-        </blockquote>
-      `
-    },
+  id: 1,
+  title: "Volunteering at Telugu AI Bootcamp 2.0 Graduation by DigiPreneur",
+  description: "My experience volunteering at the Telugu AI Bootcamp 2.0 Graduation held at T-Hub, where innovation met inclusivity in a power-packed 50-day journey of learning AI in Telugu.",
+  featuredImage: "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/IMG_5147.HEIC",
+  category: "Experience",
+  date: "2025-07-26",
+  readTime: 5,
+  gallery: [
+    "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/IMG_5147.HEIC",
+    "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/DSC02417.JPG",
+    "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/Cerificate%20-%202.0.png"
+  ],
+  content: `
+    <h2>Volunteering at Telugu AI Bootcamp 2.0 Graduation</h2>
+    <p>On July 26th, 2025, I had the privilege of volunteering at the <strong>Telugu AI Bootcamp 2.0 Graduation</strong> hosted by <strong>DigiPreneur</strong> at <strong>T-Hub, Hyderabad</strong>. It wasn’t just an event—it was the culmination of a revolutionary learning experience that empowered hundreds of learners across Andhra Pradesh and Telangana to explore Artificial Intelligence in their mother tongue, Telugu.</p>
+    
+    <h3>About Telugu AI Bootcamp 2.0</h3>
+    <p>Telugu AI Bootcamp 2.0 is <strong>India’s first fully hands-on AI program delivered 100% in Telugu</strong>. Spanning over 50 days, it brought AI concepts closer to regional language speakers—students, professionals, housewives, freelancers, entrepreneurs, and teachers—eliminating all language barriers and making tech accessible to all.</p>
+    
+    <h3>What Makes It Unique?</h3>
+    <ul>
+      <li><strong>100% in Telugu</strong> – no translations, no confusion</li>
+      <li><strong>Beginner-Friendly</strong> – no tech background needed</li>
+      <li><strong>Practical & Powerful</strong> – real-world tools, real tasks</li>
+      <li><strong>Over 100 AI Tools</strong> taught through guided learning</li>
+      <li><strong>Live & Recorded</strong> sessions (6–7:30 AM / 7:30–9 PM IST)</li>
+    </ul>
+    
+    <h3>Bootcamp Curriculum Highlights</h3>
+    <p>Each week was a deep dive into new themes, blending AI with creativity, business, and digital empowerment:</p>
+    <ul>
+      <li><strong>Week 1:</strong> Growth Mindset, AI Fundamentals, Productivity, Branding</li>
+      <li><strong>Week 2:</strong> Website/App Building, Publishing, Social Media, Advertising</li>
+      <li><strong>Week 3:</strong> YouTube Automation, Business Networking, Freelancing</li>
+    </ul>
+    
+    <blockquote>
+      “Learn It, Use It, Own It” – The guiding mantra of Telugu AI Bootcamp 2.0.
+    </blockquote>
+
+    <h3>My Volunteering Experience</h3>
+    <p>As a volunteer, I helped coordinate sessions, guided attendees, and assisted organizers throughout the graduation ceremony. The energy was electric—seeing learners proudly showcase their AI-driven projects in Telugu was both inspiring and emotional.</p>
+    
+    <p>I met passionate individuals who had never touched a line of code before this bootcamp, now confidently building tools, publishing books, and designing brand identities—thanks to the bootcamp’s structured and inclusive approach.</p>
+    
+    <h3>Additional Program Highlights</h3>
+    <ul>
+      <li><strong>21-Day AI Challenge:</strong> One task every day to build AI mastery</li>
+      <li><strong>8 Power Sessions:</strong> Live mentor-led sessions with demos, case studies, and actionable business insights</li>
+      <li><strong>100k+ worth of bonuses</strong> including templates, lifetime access, and portfolios</li>
+    </ul>
+
+    <h3>Who Was It For?</h3>
+    <p>This program was open to everyone—<strong>students, homemakers, freelancers, job seekers, business owners</strong>—proving that AI isn’t just for coders, but for every curious mind with a dream.</p>
+
+    <h3>Final Reflections</h3>
+    <p>The Telugu AI Bootcamp 2.0 is more than a course—it’s a movement. As a volunteer, I witnessed the real impact of inclusive tech education. I left the event deeply inspired and more motivated than ever to contribute to the tech-for-all movement in my community.</p>
+
+    <p>Special thanks to DigiPreneur and T-Hub for making this vision a reality. I’m proud to have been part of this milestone in regional tech empowerment.</p>
+  `
+},
     {
       id: 2,
       title: "The Future of Web Design: AI-Powered Interfaces",
