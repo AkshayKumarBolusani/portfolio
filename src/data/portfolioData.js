@@ -411,14 +411,15 @@ export const portfolioData = {
   id: 1,
   title: "Volunteering at Telugu AI Bootcamp 2.0 Graduation by DigiPreneur",
   description: "My experience volunteering at the Telugu AI Bootcamp 2.0 Graduation held at T-Hub, where innovation met inclusivity in a power-packed 50-day journey of learning AI in Telugu.",
-  featuredImage: "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/IMG_5147.HEIC",
+  featuredImage: "http://willowwoods.co.in/wp-content/uploads/2025/07/Cerificate-2.0.png",
   category: "Experience",
   date: "2025-07-26",
   readTime: 5,
   gallery: [
-    "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/IMG_5147.HEIC",
-    "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/DSC02417.JPG",
-    "https://raw.githubusercontent.com/AkshayKumarBolusani/new/main/Cerificate%20-%202.0.png"
+    "http://willowwoods.co.in/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-27-at-23.11.49-scaled.jpeg",
+    "http://willowwoods.co.in/wp-content/uploads/2025/07/IMG_5147-1.heic",
+    "http://willowwoods.co.in/wp-content/uploads/2025/07/DSC02417-scaled.jpg",
+    "http://willowwoods.co.in/wp-content/uploads/2025/07/DSC01332-scaled.jpg"
   ],
   content: `
     <h2>Volunteering at Telugu AI Bootcamp 2.0 Graduation</h2>
